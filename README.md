@@ -59,8 +59,6 @@ Comprehensive automotive trading platform featuring a modern architecture, robus
 │   │   ├── pages/           # Route-level views
 │   │   └── hooks/           # Custom React logic
 └── docker-compose.yml       # Production orchestration
-
-
 🚀 Getting Started
 Prerequisites
 Node.js (v18+)
