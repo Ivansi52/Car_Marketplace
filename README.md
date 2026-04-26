@@ -1,186 +1,61 @@
+# 🚗 Car Marketplace - Fullstack Web Application
 
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+![GraphQL](https://img.shields.io/badge/-GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white)
 
-Car Marketplace - Fullstack Web Application
+Comprehensive automotive trading platform featuring a modern architecture, robust backend logic, and a responsive user interface.
 
-A feature-rich automotive marketplace built with a modern, scalable tech stack.
+---
 
-🚀 Tech Stack
+## 🌟 Key Features
 
-Backend
+- **Dual-Protocol API:** Combines REST for authentication and file uploads with GraphQL for complex car listing queries.
+- **Role-Based Access Control (RBAC):** Distinct permissions for **Admin**, **Seller**, and **Buyer**.
+- **Advanced Filtering:** Multi-parameter search (brand, price range, fuel type, etc.) powered by GraphQL resolvers.
+- **Security First:** JWT-based stateless authentication, password hashing with Bcrypt, and protected API routes.
+- **Cloud Ready:** Fully containerized environment with production-optimized Docker builds.
 
-  - Node.js + Express — Server-side platform
-  - PostgreSQL + Sequelize ORM — Relational database & modeling
-  - GraphQL (Apollo Server) — API for complex data fetching
-  - JWT — Stateless authentication & authorization
-  - Bcrypt — Password hashing
-  - Multer — File upload handling
+---
 
-Frontend
+## 🛠 Tech Stack
 
-  - React + Vite — Fast, modern frontend development
-  - TailwindCSS — Utility-first styling
-  - Apollo Client — GraphQL client & state management
-  - React Router — Client-side routing
-  - React Hook Form — Efficient form handling
-  - React Hot Toast — Slick notifications
+### **Backend & Database**
+- **Runtime:** Node.js (Express.js)
+- **Database:** PostgreSQL with **Sequelize ORM**
+- **Query Language:** GraphQL (Apollo Server)
+- **Auth:** JWT (JSON Web Tokens) & Bcrypt
 
-DevOps & Tooling
+### **Frontend**
+- **Framework:** React.js (Vite)
+- **Styling:** Tailwind CSS (Utility-first)
+- **Data Fetching:** Apollo Client (GraphQL)
+- **Form Management:** React Hook Form & Zod
 
-  - Docker + Docker Compose — Containerization
-  - GitHub Actions — CI/CD pipelines
-  - ESLint + Prettier — Code quality & formatting
+### **DevOps & CI/CD**
+- **Containerization:** Docker & Docker Compose
+- **Automation:** GitHub Actions (Linting, Testing, Build)
+- **Web Server:** Nginx (Reverse Proxy)
 
-📁 Project Structure
+---
 
-car-marketplace/
+## 📁 Project Structure
+
+```text
 ├── backend/                 # Node.js API Server
 │   ├── src/
-│   │   ├── controllers/     # Request handlers
-│   │   ├── models/          # Sequelize models
-│   │   ├── routes/          # REST API endpoints
-│   │   ├── middleware/      # Auth & error middlewares
-│   │   ├── services/        # Business logic layer
-│   │   ├── utils/           # Helper functions
-│   │   ├── graphql/         # GraphQL schema & resolvers
-│   │   └── config/          # Environment configuration
-│   ├── migrations/          # Database migrations
-│   ├── seeders/             # Initial data seeds
-│   └── uploads/             # Static file storage
-├── frontend/                # React Application
+│   │   ├── controllers/     # REST request handlers
+│   │   ├── models/          # Database schemas (Sequelize)
+│   │   ├── graphql/         # TypeDefs & Resolvers
+│   │   ├── services/        # Core business logic
+│   │   └── middleware/      # Auth & Error handlers
+│   └── migrations/          # DB version control
+├── frontend/                # React/Vite Application
 │   ├── src/
-│   │   ├── components/      # UI components
-│   │   ├── pages/           # Route views
-│   │   ├── hooks/           # Custom React hooks
-│   │   ├── services/        # API communication
-│   │   ├── utils/           # Frontend helpers
-│   │   └── context/         # React Context API
-│   └── public/              # Static assets
-├── .github/workflows/       # Automated CI/CD pipelines
-├── docker-compose.yml       # Docker orchestration
-└── README.md                # Documentation
-
-🚀 Quick Start
-
-Prerequisites
-
-  - Node.js 18+
-  - PostgreSQL 15+
-  - Docker (optional)
-
-1. Clone the repository
-
-git clone <repository-url>
-cd car-marketplace
-
-2. Install dependencies
-
-# Install root dependencies
-npm install
-
-# Install backend dependencies
-cd backend && npm install
-
-# Install frontend dependencies
-cd ../frontend && npm install
-
-3. Database Setup
-
-# Create PostgreSQL database
-createdb car_marketplace
-
-# Configure environment variables
-cp backend/.env.example backend/.env
-# Edit backend/.env with your DB credentials
-
-4. Run Migrations & Seeds
-
-cd backend
-npm run migrate
-npm run seed
-
-5. Launch Application
-
-Local Development:
-
-# Run backend (port 5000)
-cd backend && npm run dev
-
-# Run frontend (port 3000)
-cd ../frontend && npm run dev
-
-Using Docker:
-
-docker-compose up -d
-docker-compose logs -f
-
-🌐 Accessing the App
-
-  - Frontend: http://localhost:3000
-  - Backend API: http://localhost:5000/api
-  - GraphQL Playground: http://localhost:5000/graphql
-
-👥 User Roles
-
-  - Admin: Full access to system management.
-  - Seller: Create and manage car listings.
-  - Buyer: Browse cars and manage favorites.
-
-📚 API Documentation
-
-REST API Endpoints
-
-Authentication
-
-  - POST /api/auth/register — Register new user
-  - POST /api/auth/login — Login & get token
-  - POST /api/auth/logout — Clear session
-  - GET /api/auth/me — Get current user profile
-
-User Management
-
-  - GET /api/users — List all users (Admin only)
-  - GET /api/users/:id — Get specific user details
-  - PUT /api/users/:id — Update profile
-  - DELETE /api/users/:id — Remove user (Admin only)
-
-Car Listings
-
-  - GET /api/cars — Browse all listings
-  - GET /api/cars/:id — Detailed car view
-  - POST /api/cars — Create listing (Seller/Admin)
-  - PUT /api/cars/:id — Update listing (Owner/Admin)
-  - DELETE /api/cars/:id — Delete listing (Owner/Admin)
-
-🛠️ Development Commands
-
-Backend: npm run dev, npm run test, npm run lint Frontend: npm run dev, npm run
-build, npm run preview Project-wide: npm run dev (concurrently runs both)
-
-🔄 CI/CD The project uses GitHub Actions for:
-
-  - Code Linting (ESLint)
-  - Automated Testing (Jest)
-  - Docker Image Builds
-  - Continuous Deployment (to main branch)
-
-🔒 Security Features
-
-  - JWT for secure sessions
-  - Bcrypt for password encryption
-  - Helmet for HTTP header protection
-  - CORS configuration
-  - Rate limiting to prevent brute-force attacks
-  - Input Validation & Sanitization
-
-🎯 Roadmap
-
-- [ ] Mobile App (React Native)
-- [ ] Real-time Notifications (WebSockets)
-- [ ] Payment Gateway Integration (Stripe)
-- [ ] Rating & Review System
-- [ ] Built-in Buyer-Seller Chat
-- [ ] Recommendation System (ML-based)
-
-📝 License Licensed under the MIT License.
-
-
+│   │   ├── components/      # Reusable UI atoms/molecules
+│   │   ├── pages/           # Route-level views
+│   │   └── hooks/           # Custom React logic
+└── docker-compose.yml       # Production orchestration
