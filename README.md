@@ -59,3 +59,41 @@ Comprehensive automotive trading platform featuring a modern architecture, robus
 │   │   ├── pages/           # Route-level views
 │   │   └── hooks/           # Custom React logic
 └── docker-compose.yml       # Production orchestration
+
+
+🚀 Getting Started
+Prerequisites
+Node.js (v18+)
+PostgreSQL (v15+)
+Docker (Optional)
+Installation
+Clone & Install:
+code
+Bash
+git clone https://github.com/Ivansi52/Car_Marketplace.git
+cd Car_Marketplace
+npm run setup # Custom script to install all dependencies
+Environment Setup:
+Create a .env file in the backend/ directory:
+code
+Env
+PORT=5000
+DB_NAME=car_marketplace
+JWT_SECRET=your_secret_key
+Run with Docker:
+code
+Bash
+docker-compose up --build
+🔒 Security & Performance
+Optimized Queries: Implemented SQL indexing and eager loading to prevent N+1 issues in GraphQL.
+Middleware Protection: Custom auth and roleCheck middlewares for secure resource access.
+Modern Form Handling: Client-side validation to reduce unnecessary server load.
+🎯 Roadmap & Future Updates
+
+Real-time Chat: Implementing WebSockets for buyer-seller communication.
+
+Payment Integration: Stripe/Stripe integration for premium listings.
+
+Image Optimization: Automated WebP conversion and CDN delivery.
+📄 License
+Distributed under the MIT License. See LICENSE for more information.
