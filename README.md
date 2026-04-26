@@ -1,427 +1,186 @@
-# Car Marketplace - Fullstack Application
 
-Полнофункциональный автомобильный маркетплейс с современным стеком технологий.
 
-## 🚀 Технологии
+Car Marketplace - Fullstack Web Application
 
-### Backend
-- **Node.js** + **Express** - серверная платформа
-- **PostgreSQL** + **Sequelize ORM** - база данных
-- **GraphQL** (Apollo Server) - API для сложных запросов
-- **JWT** - авторизация и аутентификация
-- **Bcrypt** - хеширование паролей
-- **Multer** - загрузка файлов
+A feature-rich automotive marketplace built with a modern, scalable tech stack.
 
-### Frontend
-- **React** + **Vite** - современный фронтенд
-- **TailwindCSS** - стилизация
-- **Apollo Client** - GraphQL клиент
-- **React Router** - маршрутизация
-- **React Hook Form** - формы
-- **React Hot Toast** - уведомления
+🚀 Tech Stack
 
-### DevOps
-- **Docker** + **Docker Compose** - контейнеризация
-- **GitHub Actions** - CI/CD
-- **ESLint** + **Prettier** - качество кода
+Backend
 
-## 📁 Структура проекта
+  - Node.js + Express — Server-side platform
+  - PostgreSQL + Sequelize ORM — Relational database & modeling
+  - GraphQL (Apollo Server) — API for complex data fetching
+  - JWT — Stateless authentication & authorization
+  - Bcrypt — Password hashing
+  - Multer — File upload handling
 
-```
+Frontend
+
+  - React + Vite — Fast, modern frontend development
+  - TailwindCSS — Utility-first styling
+  - Apollo Client — GraphQL client & state management
+  - React Router — Client-side routing
+  - React Hook Form — Efficient form handling
+  - React Hot Toast — Slick notifications
+
+DevOps & Tooling
+
+  - Docker + Docker Compose — Containerization
+  - GitHub Actions — CI/CD pipelines
+  - ESLint + Prettier — Code quality & formatting
+
+📁 Project Structure
+
 car-marketplace/
-├── backend/                 # Node.js API сервер
+├── backend/                 # Node.js API Server
 │   ├── src/
-│   │   ├── controllers/     # Контроллеры
-│   │   ├── models/          # Sequelize модели
-│   │   ├── routes/          # REST API маршруты
-│   │   ├── middleware/      # Middleware функции
-│   │   ├── services/        # Бизнес логика
-│   │   ├── utils/           # Утилиты
-│   │   ├── graphql/         # GraphQL схема и резолверы
-│   │   └── config/          # Конфигурация
-│   ├── migrations/          # Миграции БД
-│   ├── seeders/            # Сиды БД
-│   └── uploads/            # Загруженные файлы
-├── frontend/               # React приложение
+│   │   ├── controllers/     # Request handlers
+│   │   ├── models/          # Sequelize models
+│   │   ├── routes/          # REST API endpoints
+│   │   ├── middleware/      # Auth & error middlewares
+│   │   ├── services/        # Business logic layer
+│   │   ├── utils/           # Helper functions
+│   │   ├── graphql/         # GraphQL schema & resolvers
+│   │   └── config/          # Environment configuration
+│   ├── migrations/          # Database migrations
+│   ├── seeders/             # Initial data seeds
+│   └── uploads/             # Static file storage
+├── frontend/                # React Application
 │   ├── src/
-│   │   ├── components/     # React компоненты
-│   │   ├── pages/          # Страницы
-│   │   ├── hooks/          # Кастомные хуки
-│   │   ├── services/       # API сервисы
-│   │   ├── utils/          # Утилиты
-│   │   └── context/        # React контекст
-│   └── public/             # Статические файлы
-├── .github/workflows/      # GitHub Actions
-├── docker-compose.yml      # Docker конфигурация
-└── README.md              # Документация
-```
+│   │   ├── components/      # UI components
+│   │   ├── pages/           # Route views
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── services/        # API communication
+│   │   ├── utils/           # Frontend helpers
+│   │   └── context/         # React Context API
+│   └── public/              # Static assets
+├── .github/workflows/       # Automated CI/CD pipelines
+├── docker-compose.yml       # Docker orchestration
+└── README.md                # Documentation
 
-## 🚀 Быстрый старт
+🚀 Quick Start
 
-### Предварительные требования
-- Node.js 18+
-- PostgreSQL 15+
-- Docker (опционально)
+Prerequisites
 
-### 1. Клонирование репозитория
-```bash
+  - Node.js 18+
+  - PostgreSQL 15+
+  - Docker (optional)
+
+1. Clone the repository
+
 git clone <repository-url>
 cd car-marketplace
-```
 
-### 2. Установка зависимостей
-```bash
-# Установка корневых зависимостей
+2. Install dependencies
+
+# Install root dependencies
 npm install
 
-# Установка зависимостей backend
-cd backend
-npm install
+# Install backend dependencies
+cd backend && npm install
 
-# Установка зависимостей frontend
-cd ../frontend
-npm install
-```
+# Install frontend dependencies
+cd ../frontend && npm install
 
-### 3. Настройка базы данных
-```bash
-# Создание базы данных PostgreSQL
+3. Database Setup
+
+# Create PostgreSQL database
 createdb car_marketplace
 
-# Настройка переменных окружения
-cp backend/env.example backend/.env
-# Отредактируйте backend/.env с вашими настройками БД
-```
+# Configure environment variables
+cp backend/.env.example backend/.env
+# Edit backend/.env with your DB credentials
 
-### 4. Запуск миграций
-```bash
+4. Run Migrations & Seeds
+
 cd backend
 npm run migrate
 npm run seed
-```
 
-### 5. Запуск приложения
+5. Launch Application
 
-#### Локальная разработка
-```bash
-# Запуск backend (порт 5000)
-cd backend
-npm run dev
+Local Development:
 
-# Запуск frontend (порт 3000)
-cd ../frontend
-npm run dev
-```
-
-#### С помощью Docker
-```bash
-# Запуск всех сервисов
-docker-compose up -d
-
-# Просмотр логов
-docker-compose logs -f
-```
-
-## 🌐 Доступ к приложению
-
-- **Frontend**: http://localhost:3000
-- **Backend API**: http://localhost:5000/api
-- **GraphQL Playground**: http://localhost:5000/graphql
-
-## 👥 Роли пользователей
-
-- **Admin** - полный доступ ко всем функциям
-- **Seller** - может создавать и управлять своими объявлениями
-- **Buyer** - может просматривать автомобили и добавлять в избранное
-
-## 📚 API Документация
-
-### REST API Endpoints
-
-#### Аутентификация
-- `POST /api/auth/register` - Регистрация
-- `POST /api/auth/login` - Вход
-- `POST /api/auth/logout` - Выход
-- `GET /api/auth/me` - Получить текущего пользователя
-
-#### Пользователи
-- `GET /api/users` - Список пользователей (admin)
-- `GET /api/users/:id` - Получить пользователя
-- `PUT /api/users/:id` - Обновить пользователя
-- `DELETE /api/users/:id` - Удалить пользователя (admin)
-
-#### Автомобили
-- `GET /api/cars` - Список автомобилей
-- `GET /api/cars/:id` - Получить автомобиль
-- `POST /api/cars` - Создать автомобиль (seller/admin)
-- `PUT /api/cars/:id` - Обновить автомобиль (owner/admin)
-- `DELETE /api/cars/:id` - Удалить автомобиль (owner/admin)
-
-### GraphQL API
-
-#### Примеры запросов
-
-**Получить все автомобили:**
-```graphql
-query GetAllCars {
-  cars {
-    cars {
-      id
-      brand
-      model
-      year
-      price
-      mileage
-      fuelType
-      transmission
-      images
-      seller {
-        id
-        name
-        email
-      }
-      createdAt
-    }
-    pagination {
-      currentPage
-      totalPages
-      totalItems
-    }
-  }
-}
-```
-
-**Фильтрация автомобилей:**
-```graphql
-query GetFilteredCars($filters: CarFiltersInput) {
-  cars(filters: $filters) {
-    cars {
-      id
-      brand
-      model
-      year
-      price
-      mileage
-      fuelType
-      transmission
-      images
-      seller {
-        name
-      }
-    }
-  }
-}
-```
-
-**Переменные для фильтрации:**
-```json
-{
-  "filters": {
-    "brand": "Toyota",
-    "minPrice": 10000,
-    "maxPrice": 50000,
-    "minYear": 2015,
-    "fuelType": "GASOLINE",
-    "transmission": "AUTOMATIC"
-  }
-}
-```
-
-**Мутация создания автомобиля:**
-```graphql
-mutation CreateCar($input: CreateCarInput!) {
-  createCar(input: $input) {
-    id
-    brand
-    model
-    year
-    price
-    mileage
-    fuelType
-    transmission
-    images
-    seller {
-      name
-    }
-  }
-}
-```
-
-## 🛠️ Разработка
-
-### Backend разработка
-```bash
-cd backend
-npm run dev          # Запуск в режиме разработки
-npm run test         # Запуск тестов
-npm run lint         # Проверка кода
-npm run migrate      # Запуск миграций
-npm run seed         # Заполнение тестовыми данными
-```
-
-### Frontend разработка
-```bash
-cd frontend
-npm run dev          # Запуск в режиме разработки
-npm run build        # Сборка для продакшена
-npm run preview      # Предварительный просмотр сборки
-npm run test         # Запуск тестов
-npm run lint         # Проверка кода
-```
-
-### Общие команды
-```bash
-npm run dev          # Запуск backend и frontend одновременно
-npm run build        # Сборка всего проекта
-npm run test         # Запуск всех тестов
-npm run lint         # Проверка всего кода
-```
-
-## 🐳 Docker
-
-### Сборка и запуск
-```bash
-# Сборка всех образов
-docker-compose build
-
-# Запуск всех сервисов
-docker-compose up -d
-
-# Просмотр логов
-docker-compose logs -f
-
-# Остановка сервисов
-docker-compose down
-```
-
-### Пересборка
-```bash
-# Пересборка без кеша
-docker-compose build --no-cache
-
-# Перезапуск конкретного сервиса
-docker-compose restart backend
-```
-
-## 🔄 CI/CD
-
-Проект настроен с GitHub Actions для автоматического:
-
-- **Линтинга** кода (ESLint)
-- **Запуска тестов** (Jest)
-- **Сборки** приложения
-- **Создания Docker образов**
-- **Деплоя** (при пуше в main ветку)
-
-### Workflow файлы
-- `.github/workflows/ci-cd.yml` - основной pipeline
-
-## 🧪 Тестирование
-
-### Backend тесты
-```bash
-cd backend
-npm test                    # Запуск всех тестов
-npm run test:watch         # Запуск в режиме наблюдения
-npm run test:coverage      # Запуск с покрытием
-```
-
-### Frontend тесты
-```bash
-cd frontend
-npm test                   # Запуск всех тестов
-npm run test:ui           # Запуск с UI
-```
-
-## 📊 Мониторинг и логи
-
-### Логи приложения
-```bash
-# Docker логи
-docker-compose logs -f backend
-docker-compose logs -f frontend
-
-# Локальные логи
+# Run backend (port 5000)
 cd backend && npm run dev
-cd frontend && npm run dev
-```
 
-### Health Check
-- Backend: `GET http://localhost:5000/health`
-- Frontend: `GET http://localhost:3000`
+# Run frontend (port 3000)
+cd ../frontend && npm run dev
 
-## 🔒 Безопасность
+Using Docker:
 
-- **JWT токены** для аутентификации
-- **Bcrypt** для хеширования паролей
-- **Helmet** для безопасности HTTP заголовков
-- **CORS** настройки
-- **Rate limiting** для защиты от спама
-- **Валидация** входных данных
-- **Санитизация** пользовательского ввода
+docker-compose up -d
+docker-compose logs -f
 
-## 🚀 Деплой
+🌐 Accessing the App
 
-### Продакшен переменные окружения
+  - Frontend: http://localhost:3000
+  - Backend API: http://localhost:5000/api
+  - GraphQL Playground: http://localhost:5000/graphql
 
-**Backend (.env):**
-```env
-NODE_ENV=production
-PORT=5000
-DB_HOST=your-db-host
-DB_PORT=5432
-DB_NAME=car_marketplace_prod
-DB_USER=your-db-user
-DB_PASSWORD=your-secure-password
-JWT_SECRET=your-super-secret-jwt-key
-CORS_ORIGIN=https://your-frontend-domain.com
-```
+👥 User Roles
 
-**Frontend (.env):**
-```env
-VITE_API_URL=https://your-api-domain.com/api
-VITE_GRAPHQL_URL=https://your-api-domain.com/graphql
-```
+  - Admin: Full access to system management.
+  - Seller: Create and manage car listings.
+  - Buyer: Browse cars and manage favorites.
 
-### Рекомендации по деплою
+📚 API Documentation
 
-1. **Используйте HTTPS** в продакшене
-2. **Настройте CDN** для статических файлов
-3. **Используйте managed PostgreSQL** (AWS RDS, Google Cloud SQL)
-4. **Настройте мониторинг** (Sentry, DataDog)
-5. **Используйте reverse proxy** (Nginx, CloudFlare)
+REST API Endpoints
 
-## 🤝 Вклад в проект
+Authentication
 
-1. Форкните репозиторий
-2. Создайте feature ветку (`git checkout -b feature/amazing-feature`)
-3. Зафиксируйте изменения (`git commit -m 'Add amazing feature'`)
-4. Отправьте в ветку (`git push origin feature/amazing-feature`)
-5. Откройте Pull Request
+  - POST /api/auth/register — Register new user
+  - POST /api/auth/login — Login & get token
+  - POST /api/auth/logout — Clear session
+  - GET /api/auth/me — Get current user profile
 
-## 📝 Лицензия
+User Management
 
-Этот проект лицензирован под MIT License - см. файл [LICENSE](LICENSE) для деталей.
+  - GET /api/users — List all users (Admin only)
+  - GET /api/users/:id — Get specific user details
+  - PUT /api/users/:id — Update profile
+  - DELETE /api/users/:id — Remove user (Admin only)
 
-## 📞 Поддержка
+Car Listings
 
-Если у вас есть вопросы или проблемы:
+  - GET /api/cars — Browse all listings
+  - GET /api/cars/:id — Detailed car view
+  - POST /api/cars — Create listing (Seller/Admin)
+  - PUT /api/cars/:id — Update listing (Owner/Admin)
+  - DELETE /api/cars/:id — Delete listing (Owner/Admin)
 
-1. Проверьте [Issues](https://github.com/your-repo/issues)
-2. Создайте новый Issue с подробным описанием
-3. Свяжитесь с командой разработки
+🛠️ Development Commands
 
-## 🎯 Roadmap
+Backend: npm run dev, npm run test, npm run lint Frontend: npm run dev, npm run
+build, npm run preview Project-wide: npm run dev (concurrently runs both)
 
-- [ ] Мобильное приложение (React Native)
-- [ ] Система уведомлений (WebSocket)
-- [ ] Интеграция с платежными системами
-- [ ] Система рейтингов и отзывов
-- [ ] Чат между покупателями и продавцами
-- [ ] Интеграция с внешними API (автосалоны)
-- [ ] Система рекомендаций (ML)
-- [ ] Аналитика и дашборды
+🔄 CI/CD The project uses GitHub Actions for:
 
----
+  - Code Linting (ESLint)
+  - Automated Testing (Jest)
+  - Docker Image Builds
+  - Continuous Deployment (to main branch)
 
-**Создано с ❤️ командой Car Marketplace**
+🔒 Security Features
+
+  - JWT for secure sessions
+  - Bcrypt for password encryption
+  - Helmet for HTTP header protection
+  - CORS configuration
+  - Rate limiting to prevent brute-force attacks
+  - Input Validation & Sanitization
+
+🎯 Roadmap
+
+- [ ] Mobile App (React Native)
+- [ ] Real-time Notifications (WebSockets)
+- [ ] Payment Gateway Integration (Stripe)
+- [ ] Rating & Review System
+- [ ] Built-in Buyer-Seller Chat
+- [ ] Recommendation System (ML-based)
+
+📝 License Licensed under the MIT License.
+
+
